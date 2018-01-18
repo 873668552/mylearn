@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html{
+            font-size: 31.25vw;
+        }
+        .divbox {
+            margin-top: 0.2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.016rem;
+            color: black;
+        }
+
+        #divShow {
+            width: 300px;
+            height: 500px;
+            overflow: auto;
+            border: 1px solid black;
+        }
+
+        .divbox>p {
+            width: 300px;
+            text-align: left;
+        }
+        .divbox>p input:nth-of-type(1){
+           width: 200px;
+        }
+        .divbox>p input:nth-of-type(2){
+           width: 80px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="divbox">
+        <div id="divShow">被禁止显示的字符是：a ,b ,c<br></div>
+        <p>
+            <input type="text" name="" id="inpShow">
+            <input type="button" name="" value="提交" id="inpBtn" onclick="submitClick()">
+        </p>
+    </div>
+</body>
+<script>
+    function submitClick() {
+
+        // 1 得到数据
+        var divStr = ""; 
+        var inpStr = inpShow.value;
+        var fobitArr = ['a','b','c'];
+
+        // 2 函数的书写
+        function replaceAll(str, arr, replaceStr) {
+
+            for(var i in arr){
+                str = str.replace(eval('/'+arr[i]+'/g'),replaceStr);
+            }
+            return str;
+        }       
+
+        // 3 向div赋值
+        inpStr = replaceAll(inpStr,fobitArr,'*');
+        divStr += inpStr +'<br>';
+        divShow.innerHTML += divStr;
+        inpShow.value = '';
+    }
+</script>
+
+</html>
