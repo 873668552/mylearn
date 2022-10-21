@@ -1,0 +1,4 @@
+ 浏览器兼容：
+ 使用polyfill（https://polyfill.io/v3/url-builder/），在合适的周期加入。
+ <script src='https://polyfill.io/v3/polyfill.min.js?features=String.prototype.replaceAll' />
+ 
